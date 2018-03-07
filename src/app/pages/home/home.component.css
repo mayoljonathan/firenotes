@@ -1,0 +1,26 @@
+.space {
+  flex: 1 1 auto;
+}
+.user-photo{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 5px;
+}
+.notes-container{
+    min-height: 200px;
+    height: calc(100% - 96px);
+    padding: 16px;
+}
+
+.empty-note{
+    width: 50%;
+    height: auto;
+}
+
+
+/*CHANGE DEFAULT TEXT COLOR FOR MAT-TOOLBAR*/
+.mat-toolbar {
+    color: white !important;
+    height: 64px !important;
+}

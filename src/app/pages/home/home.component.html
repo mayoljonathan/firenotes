@@ -1,0 +1,31 @@
+<mat-toolbar class="full-height" style="background-color: #039BE5">
+  <img src="./assets/images/logo.png" alt="FireNotes logo" class="logo">
+  <span style="color:#FFCA28">Fire</span><span>Notes</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="space"></span>
+
+  <button mat-button [matMenuTriggerFor]="appMenu" *ngIf="userDetails; else loadingUser">
+    <img [src]="userDetails?.photoURL || './assets/images/user_placeholder.png'" alt="User Photo" class="user-photo">
+    {{userDetails?.name}}
+  </button>
+  <mat-menu #appMenu="matMenu">
+    <!--<button mat-menu-item (click)="showUpdateProfile()"> Update Profile </button>-->
+    <button mat-menu-item (click)="signOut()"> Sign Out </button>
+  </mat-menu>
+
+  <ng-template #loadingUser>
+    <div>
+      <span style="font-size: 13px">Loading user</span>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </ng-template>
+</mat-toolbar>
+  
+<div class="notes-container flex-hv">
+  <!--If empty-->
+  <div class="flex-hv">
+    <img src="./assets/images/note.svg" alt="Note" class="empty-note" width="200" height="150">
+    <div class="empty-note-text">You have no notes. Add a note now by clicking the + button</div>
+  </div>
+</div>
+

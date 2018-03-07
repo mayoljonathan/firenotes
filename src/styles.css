@@ -1,0 +1,65 @@
+/*Change the theme*/
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* You can add global styles to this file, and also import other style files */
+html {
+    position:relative;
+    min-height: 100%;
+}
+/*Normalize html and body elements,this style is just good to have*/
+html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+    /*background-color: #039BE5;*/
+    /*background-color: #6498FE;*/
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+/*
+.main-container {
+    height: 100%;
+    background: #ECEFF1;
+}*/
+
+/*LOGO*/
+.logo{
+    width: 40px;
+    margin-right: 5px;
+}
+
+/*WIDTH's & HEIGHT's*/
+.full-width {
+    width: 100%;
+}
+.full-height{
+    height: 100%;
+}
+
+/*MARGINS & PADDINGS*/
+.no-margin{
+    margin: 0 auto !important;
+}
+
+/*FLEX*/
+.flex-hv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-h{
+    display: flex;
+    justify-content: center;
+}
+.flex-v{
+    display: flex;
+    align-items: center;
+}
+
+/*TYPOGRAPHY & STYLING*/
+.text-center{
+    text-align: center;
+}

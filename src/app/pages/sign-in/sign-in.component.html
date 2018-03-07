@@ -1,0 +1,82 @@
+<div class="sign-in-container">
+
+  <mat-progress-bar *ngIf="isLoading" class="progress-bar" mode="indeterminate"></mat-progress-bar>
+
+  <div class="app-title-container">
+    <div id="logo-animation">
+      <div class="first-note">
+        <div data-x="180" class="other-note"></div>
+        <div data-x="100" class="other-note"></div>
+        <div data-x="260" class="other-note"></div>
+      </div>
+    </div>
+    <h2 class="app-title">
+      <span style="color:#FFCA28">Fire</span>Notes
+    </h2>
+    <span class="app-subtitle">easily save your notes online and offline!</span>
+  </div>
+
+  <a href="https://github.com/tsebvaan/firenotes">
+    <img src="./assets/images/fork.jpg" alt="Fork me on GitHub" class="fork-image">
+  </a>
+  
+  <div class="app-body-container">
+
+    <div class="error-container" *ngIf="errorMessage">
+      <div class="text-center">
+        <span class="error-message">{{errorMessage}}</span>
+      </div>
+      <div class="close-button">
+        <button mat-button matSuffix mat-icon-button aria-label="Dismiss error" (click)="errorMessage=''">
+          <mat-icon style="color: white">close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!--Hidden if not registering-->
+    <div class="flex-hv" *ngIf="!isRegistering">
+      <div class="social-providers">
+        <p class="text-center">Sign in using social networks</p>
+        <div class="social-buttons text-center">
+          <img (click)="signInWith('facebook')" src="./assets/images/facebook.png" alt="Facebook" />
+          <img (click)="signInWith('google')" src="./assets/images/google.png" alt="Google" />
+          <img (click)="signInWith('twitter')" src="./assets/images/twitter.png" alt="Twitter" />
+          <img (click)="signInWith('github')" src="./assets/images/github.png" alt="GitHub" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-hv">
+      <div class="sign-in-form">
+        <p class="text-center">{{ isRegistering ? 'Register to get started!' : 'or with an account'}}</p>
+        <!--Shown only if is registering-->
+        <mat-form-field color="accent" *ngIf="isRegistering">
+          <input matInput placeholder="Name" [(ngModel)]="user.name" [disabled]="isLoading">
+        </mat-form-field>
+        <!--Shown on both login/register form-->
+        <mat-form-field color="accent">
+          <input matInput placeholder="Email" [(ngModel)]="user.email" [disabled]="isLoading">
+        </mat-form-field>
+        <mat-form-field color="accent">
+          <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Password" [(ngModel)]="user.password" [disabled]="isLoading">
+          <button *ngIf="user.password != ''" (click)="hidePassword = !hidePassword" mat-button matSuffix mat-icon-button aria-label="Show/Hide">
+            <mat-icon style="color: white">{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button color="accent" [disabled]="isLoading" (click)="submitForm()">{{ isRegistering ? 'SIGN UP' : 'SIGN IN'}}</button>
+        <button mat-button class="toggle-form" [disabled]="isLoading" (click)="toggleForm()">{{ !isRegistering ? "Don't have an account? Register here!" : 'Have an account? Sign in here!'}} </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer flex-h">
+  <span>
+    Made using 
+    <a href="https://angular.io/" target="_blank" style="color: #DE3641">Angular</a>and 
+    <a href="https://firebase.google.com/" target="_blank" style="color: #FFCA28">Firebase</a>with 
+    <span style="color: red">❤</span>
+  </span>
+</div>
+
